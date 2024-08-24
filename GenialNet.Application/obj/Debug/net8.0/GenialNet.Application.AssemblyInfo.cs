@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GenialNet.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+730c6cbb0f38d6369a6bb067bed38dbc57bc7279")]
 [assembly: System.Reflection.AssemblyProductAttribute("GenialNet.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GenialNet.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

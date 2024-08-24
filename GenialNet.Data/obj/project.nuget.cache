@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "42E48g3Nb1E=",
+  "dgSpecHash": "Lnc3PWodXro=",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\Entrevista\\GenialNet\\GenialNet.Data\\GenialNet.Data.csproj",
+  "projectFilePath": "C:\\Projetos\\Projetinho\\genialnet\\GenialNet.Data\\GenialNet.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Meu Computador\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.8\\microsoft.entityframeworkcore.8.0.8.nupkg.sha512",
     "C:\\Users\\Meu Computador\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.8\\microsoft.entityframeworkcore.abstractions.8.0.8.nupkg.sha512",
