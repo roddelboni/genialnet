@@ -3,6 +3,7 @@ using GenialNet.Domain.Entities;
 using GenialNet.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
 
 namespace GenialNet.Data.Repositories
 {
@@ -24,9 +25,9 @@ namespace GenialNet.Data.Repositories
             return fornecedorId.Entity.Id;
         }
 
-        public async Task<Fornecedor> BuscarFornecedorPorId(Guid id)
+        public async Task<Fornecedor> BuscarFornecedorPorId(Guid id, CancellationToken cancellationToken = default)
         {
-            return _readContext.Fornecedores.Where(f => f.Id == id).First();
+           return _readContext.Fornecedores.Where(f => f.Id == id).First();
         }
 
         public async Task<List<Fornecedor>> BuscarFornecedoresAll(CancellationToken cancellationToken)
@@ -34,7 +35,7 @@ namespace GenialNet.Data.Repositories
             return _readContext.Fornecedores.ToList();
         }
 
-        public async Task<Fornecedor> AtualizarFornecedor(Fornecedor fornecedor)
+        public async Task<Fornecedor> AtualizarFornecedor(Fornecedor fornecedor, CancellationToken cancellationToken)
         {            
             var fornecedorExistente = await _readContext.Fornecedores
                 .FirstOrDefaultAsync(f => f.Id == fornecedor.Id);
