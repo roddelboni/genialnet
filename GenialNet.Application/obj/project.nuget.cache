@@ -1,13 +1,23 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "Qg1RxEq9tIA=",
+=======
+  "dgSpecHash": "mt9190LFii8=",
+>>>>>>> 750ad8a04bd2d14db56362122526c13e7385dd36
   "success": true,
-  "projectFilePath": "C:\\Projetos\\Projetinho\\genialnet\\GenialNet.Application\\GenialNet.Application.csproj",
+  "projectFilePath": "C:\\Projetos\\Testes\\genialnet\\GenialNet.Application\\GenialNet.Application.csproj",
   "expectedPackageFiles": [
+<<<<<<< HEAD
     "C:\\Users\\Meu Computador\\.nuget\\packages\\fluentvalidation\\11.9.2\\fluentvalidation.11.9.2.nupkg.sha512",
     "C:\\Users\\Meu Computador\\.nuget\\packages\\mediatr\\12.4.0\\mediatr.12.4.0.nupkg.sha512",
     "C:\\Users\\Meu Computador\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Meu Computador\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+=======
+    "C:\\Users\\Rodrigo\\.nuget\\packages\\mediatr\\12.4.0\\mediatr.12.4.0.nupkg.sha512",
+    "C:\\Users\\Rodrigo\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\Rodrigo\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+>>>>>>> 750ad8a04bd2d14db56362122526c13e7385dd36
   ],
   "logs": []
 }
