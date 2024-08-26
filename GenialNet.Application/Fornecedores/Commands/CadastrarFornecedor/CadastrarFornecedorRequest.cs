@@ -1,13 +1,7 @@
 ﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GenialNet.Application.Fornecedores.Commands.CadastrarFornecedor
-{
-    public record CadastrarFornecedorRequest : IRequest<Guid>
-    {
-    }
-}
+namespace GenialNet.Application.Fornecedores.Commands.CadastrarFornecedor;
+
+    public record CadastrarFornecedorRequest(string Nome, string Cnpj,
+        string Endereco, string Telefone) : IRequest<Guid>;
+

@@ -11,13 +11,13 @@ namespace GenialNet.Domain.Entities
     public class ProdutoFornecedor
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [ForeignKey("Produto")]
-        public int ProdutoId { get; set; }
+        public Guid ProdutoId { get; set; }
 
         [ForeignKey("Fornecedor")]
-        public int FornecedorId { get; set; }
+        public Guid FornecedorId { get; set; }
 
         [Required]
         [Column(TypeName = "decimal(18,2)")]
