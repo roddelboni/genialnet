@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GenialNet.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+657c10c8008d1d1fb5be2bc677fc6f6992431f1e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e84e6e169c6c1bfe923c780bd80fd28694b50bdb")]
 [assembly: System.Reflection.AssemblyProductAttribute("GenialNet.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GenialNet.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
