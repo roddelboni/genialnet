@@ -32,6 +32,7 @@ namespace GenialNet.Data.Context
 
         public DbSet<Produto> Produtos { get; set; } = null!;
         public DbSet<Fornecedor> Fornecedores { get; set; } = null!;
+        public DbSet<ProdutoFornecedor> ProdutoFornecedores { get; set; } = null!;
 
     }
 }

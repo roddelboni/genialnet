@@ -4,7 +4,7 @@ using GenialNet.Domain.Utils;
 
 namespace GenialNet.Application.Fornecedores.Commands.CadastrarFornecedor;
 
-public class CadastrarFornecedorValidation : AbstractValidator<Fornecedor>
+public class CadastrarFornecedorValidation : AbstractValidator<CadastrarFornecedorRequest>
 {
     private readonly ValidarCnpj _cnpjValidator;
 

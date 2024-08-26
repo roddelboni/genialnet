@@ -1,4 +1,5 @@
 ﻿using GenialNet.Data.Context;
+using GenialNet.Domain.Dtos;
 using GenialNet.Domain.Entities;
 using GenialNet.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -24,17 +25,33 @@ namespace GenialNet.Data.Repositories
             return fornecedorId.Entity.Id;
         }
 
-        public async Task<Fornecedor> BuscarFornecedorPorId(Guid id, CancellationToken cancellationToken = default)
+        public async Task<FornecedorDto> BuscarFornecedorPorId(Guid id, CancellationToken cancellationToken = default)
         {
-           return _readContext.Fornecedores.Where(f => f.Id == id).First();
+            var fornecedor = _readContext.Fornecedores.Where(f => f.Id == id).First();
+            return new FornecedorDto
+            {
+                Id = fornecedor.Id,
+                Nome = fornecedor.Nome,
+                Cnpj = fornecedor.Cnpj,
+                Endereco = fornecedor.Endereco,
+                Telefone = fornecedor.Telefone
+            };
         }
 
-        public async Task<List<Fornecedor>> BuscarFornecedoresAll(CancellationToken cancellationToken)
+        public async Task<List<FornecedorDto>> BuscarFornecedoresAll(CancellationToken cancellationToken)
         {
-            return _readContext.Fornecedores.ToList();
+            var fornecedores = _readContext.Fornecedores.ToList();
+            return fornecedores.Select(f => new FornecedorDto
+            {
+                Id = f.Id,
+                Nome = f.Nome,
+                Cnpj = f.Cnpj,
+                Endereco = f.Endereco,
+                Telefone = f.Telefone
+            }).ToList();           
         }
 
-        public async Task<Fornecedor> AtualizarFornecedor(Fornecedor fornecedor, CancellationToken cancellationToken)
+        public async Task<FornecedorDto> AtualizarFornecedor(Fornecedor fornecedor, CancellationToken cancellationToken)
         {            
             var fornecedorExistente = await _readContext.Fornecedores
                 .FirstOrDefaultAsync(f => f.Id == fornecedor.Id);
@@ -53,7 +70,14 @@ namespace GenialNet.Data.Repositories
 
             await _writeContext.SaveChangesAsync();
 
-            return fornecedorExistente;
+            return new FornecedorDto
+            {
+                Id = fornecedorExistente.Id,
+                Nome = fornecedorExistente.Nome,
+                Cnpj = fornecedorExistente.Cnpj,
+                Endereco = fornecedorExistente.Endereco,
+                Telefone = fornecedorExistente.Telefone
+            };
         }
 
         public async Task<bool> RemoverFornecedor(Fornecedor fornecedor, CancellationToken cancellationToken)
@@ -61,7 +85,6 @@ namespace GenialNet.Data.Repositories
             var fornecedorId = _writeContext.Fornecedores.Remove(fornecedor);
             _writeContext.SaveChanges();
             return true;
-
         }
     }
 }

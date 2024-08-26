@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GenialNet.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4472b83cc7bbd49d16d7f50cbaaaf6a2bcf6e571")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e4fa78e377ed23dd9992a28a4deeb25c0a74f1a1")]
 [assembly: System.Reflection.AssemblyProductAttribute("GenialNet.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GenialNet.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,4 +1,5 @@
 ﻿using GenialNet.Data.Context;
+using GenialNet.Domain.Dtos;
 using GenialNet.Domain.Entities;
 using GenialNet.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -23,17 +24,31 @@ namespace GenialNet.Data.Repositories
             return ProdutoId.Entity.Id;
         }
 
-        public async Task<Produto> BuscarProdutoPorId(Guid id, CancellationToken cancellationToken = default)
+        public async Task<ProdutoDto> BuscarProdutoPorId(Guid id, CancellationToken cancellationToken = default)
         {
-            return _readContext.Produtos.Where(f => f.Id == id).First();
+            var produto = _readContext.Produtos.Where(f => f.Id == id).First();
+            return new ProdutoDto
+            {
+                Id = produto.Id,
+                Descricao = produto.Descricao,
+                Marca = produto.Marca,
+                Medida = produto.Medida
+            };
         }
 
-        public async Task<List<Produto>> BuscarProdutoesAll(CancellationToken cancellationToken)
+        public async Task<List<ProdutoDto>> BuscarProdutoesAll(CancellationToken cancellationToken)
         {
-            return _readContext.Produtos.ToList();
+            var produto = _readContext.Produtos.ToList();
+            return produto.Select(p => new ProdutoDto
+            {
+                Id = p.Id,
+                Descricao = p.Descricao,
+                Marca = p.Marca,
+                Medida = p.Medida
+            }).ToList();
         }
 
-        public async Task<Produto> AtualizarProduto(Produto Produto, CancellationToken cancellationToken)
+        public async Task<ProdutoDto> AtualizarProduto(Produto Produto, CancellationToken cancellationToken)
         {
             var ProdutoExistente = await _readContext.Produtos
                 .FirstOrDefaultAsync(f => f.Id == Produto.Id);
@@ -51,7 +66,20 @@ namespace GenialNet.Data.Repositories
 
             await _writeContext.SaveChangesAsync();
 
-            return ProdutoExistente;
+            return new ProdutoDto
+            {
+                Id = ProdutoExistente.Id,
+                Descricao = ProdutoExistente.Descricao,
+                Marca = ProdutoExistente.Marca,
+                Medida = ProdutoExistente.Medida
+            };
+        }
+
+        public async Task<bool> RemoverFornecedor(Produto produto, CancellationToken cancellationToken)
+        {
+            var produtoId =  _writeContext.Produtos.Remove(produto);
+            _writeContext.SaveChanges();
+            return true;
         }
     }
 }

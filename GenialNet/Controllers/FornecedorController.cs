@@ -1,5 +1,7 @@
 ﻿using FluentValidation;
 using GenialNet.Application.Fornecedores.Commands.CadastrarFornecedor;
+using GenialNet.Application.Fornecedores.Queries.BuscarFornecedor;
+using GenialNet.Domain.Dtos;
 using GenialNet.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -15,7 +17,7 @@ namespace GenialNet.Api.Controllers
         private readonly ILogger<FornecedorController> _logger;
         protected IMediator _mediator;
 
-        protected FornecedorController(ILogger<FornecedorController> logger, IMediator mediator)
+        public FornecedorController(ILogger<FornecedorController> logger, IMediator mediator)
         {
             _logger = logger;
             _mediator = mediator;
@@ -25,7 +27,7 @@ namespace GenialNet.Api.Controllers
         [HttpPost]
         [ProducesResponseType(typeof(Fornecedor), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public virtual async Task<ActionResult<Guid>> GetOne([FromBody] CadastrarFornecedorRequest request)
+        public virtual async Task<ActionResult<Guid>> CadastrarFornecedor([FromBody] CadastrarFornecedorRequest request)
         {
             try
             {
@@ -49,11 +51,11 @@ namespace GenialNet.Api.Controllers
 
 
         [HttpGet]
-        [ProducesResponseType(typeof(Fornecedor), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(FornecedorDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public virtual async Task<ActionResult<Fornecedor>> GetOne([FromQuery] Guid request)
+        public virtual async Task<ActionResult<FornecedorDto>> GetOne([FromQuery] Guid request)
         {
-            var getRequest = new GetExampleRequest(Id: request);
+            var getRequest = new BuscarFornecedorRequest(Id: request);
 
             var result = await _mediator.Send(getRequest);
 
