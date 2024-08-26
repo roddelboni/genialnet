@@ -3,7 +3,6 @@ using GenialNet.Domain.Entities;
 using GenialNet.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
-using System.Runtime.InteropServices;
 
 namespace GenialNet.Data.Repositories
 {
@@ -47,7 +46,7 @@ namespace GenialNet.Data.Repositories
             
             fornecedorExistente.Nome = fornecedor.Nome;
             fornecedorExistente.Cnpj = fornecedor.Cnpj;
-            fornecedorExistente.Endereço = fornecedor.Endereço;
+            fornecedorExistente.Endereco = fornecedor.Endereco;
             fornecedorExistente.Telefone = fornecedor.Telefone;
           
             _writeContext.Entry(fornecedorExistente).State = EntityState.Modified;
@@ -55,6 +54,14 @@ namespace GenialNet.Data.Repositories
             await _writeContext.SaveChangesAsync();
 
             return fornecedorExistente;
+        }
+
+        public async Task<bool> RemoverFornecedor(Fornecedor fornecedor, CancellationToken cancellationToken)
+        {
+            var fornecedorId = _writeContext.Fornecedores.Remove(fornecedor);
+            _writeContext.SaveChanges();
+            return true;
+
         }
     }
 }

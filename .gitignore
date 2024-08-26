@@ -244,6 +244,9 @@ FakesAssemblies/
 **/*.Server/GeneratedArtifacts
 **/*.Server/ModelManifest.xml
 _Pvt_Extensions
+*.csproj.nuget.g.props
+*.csproj.nuget.dgspec.json
+*.csproj.nuget.cache
 
 # Paket dependency manager
 .paket/paket.exe
