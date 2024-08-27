@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GenialNet.Domain.Enums;
+using MediatR;
 
-namespace GenialNet.Application.Produtos.Commands.AtualizarProduto
-{
-    internal class AtualizarProdutoRequest
-    {
-    }
-}
+namespace GenialNet.Application.Produtos.Commands.AtualizarProduto;
+
+public record AtualizarProdutoRequest(string Descricao, string Marca, UnidadeMedida Medida) : IRequest<bool>;
+
